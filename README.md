@@ -47,7 +47,7 @@
 
 ### Association
 
-- belongs_to :user
+- belongs_to :users
 - belongs_to :items
 
 ## comments テーブル
@@ -84,6 +84,6 @@
 
 ### Association
 
-- belongs_to :user
+- belongs_to :users
 - has_one :shipping
 - has_many :comments
