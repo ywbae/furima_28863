@@ -16,7 +16,7 @@
 
 ### Association
 
-- has_one :sign-in
+- has_one :sign_in
 
 
 ## sign-in テーブル
@@ -51,12 +51,12 @@
 
 ### Association
 
-- belongs_to :sign-in
-- has_one :item-image
+- belongs_to :sign_in
+- has_one :item_image
 - has_many :comments
 
 
-## item-image テーブル
+## item_image テーブル
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
@@ -79,5 +79,5 @@
 
 ### Association
 
-- belongs_to :sign-in
+- belongs_to :sign_in
 - belongs_to :items
