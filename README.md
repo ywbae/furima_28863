@@ -18,7 +18,6 @@
 
 - has_many :items
 - has_many :comments
-- has_one :credit_card
 - has_one :shipping_address
 
 
@@ -53,11 +52,11 @@
 
 - belongs_to :users
 - has_many :item-image
-- has_many :item-category
-- has_many :item-sales-status
-- has_many :item-shipping-fee
-- has_many :item-prefecture
-- has_many :item-scheduled
+- has_many :category
+- has_many :sales-status
+- has_many :shipping-fee
+- has_many :prefecture
+- has_many :scheduled
 - has_many :comments
 
 
@@ -88,7 +87,7 @@
 - belongs_to :items
 
 
-## item-category テーブル
+## category テーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
@@ -100,7 +99,7 @@
 - belongs_to :items
 
 
-## item-sales-status テーブル
+## sales-status テーブル
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
@@ -112,7 +111,7 @@
 - belongs_to :items
 
 
-## item-shipping-fee テーブル
+## shipping-fee テーブル
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
@@ -124,7 +123,7 @@
 - belongs_to :items
 
 
-## item-prefecture テーブル
+## prefecture テーブル
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
@@ -136,7 +135,7 @@
 - belongs_to :items
 
 
-## item-scheduled テーブル
+## scheduled テーブル
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
