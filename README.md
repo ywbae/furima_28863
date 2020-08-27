@@ -1,39 +1,5 @@
 # テーブル設計
 
-## login テーブル
-
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| user_id      | references | null: false, foreign_key: true |
-| email        | references | null: false, foreign_key: true |
-| password     | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :users
-- has_one :shipping_address
-- has_many :items
-- has_many :comments
-- has_one :credit_card
-
-
-## shipping-address テーブル
-
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| user_id      | references | null: false, foreign_key: true |
-| postal_code  | integer    | null: false                    |
-| prefecture   | integer    | null: false                    |
-| city         | integer    | null: false                    |
-| addresses    | string     | null: false                    |
-| building     | string     | null: false                    |
-| phone_number | integer    | null: false                    |
-
-### Association
-
-- belongs_to :login
-
-
 ## users テーブル
 
 | Column                | Type     | Options     |
@@ -50,7 +16,27 @@
 
 ### Association
 
-- has_one :login
+- has_many :items
+- has_many :comments
+- has_one :credit_card
+- has_one :shipping_address
+
+
+## shipping-address テーブル
+
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| user_id      | references | null: false, foreign_key: true |
+| postal_code  | integer    | null: false                    |
+| prefecture   | integer    | null: false                    |
+| city         | integer    | null: false                    |
+| addresses    | string     | null: false                    |
+| building     | string     | null: false                    |
+| phone_number | integer    | null: false                    |
+
+### Association
+
+- belongs_to :users
 
 
 ## credit_card テーブル
@@ -65,7 +51,7 @@
 
 ### Association
 
-- belongs_to :login
+- belongs_to :users
 
 
 ## items テーブル
@@ -73,8 +59,8 @@
 | Column                   | Type       | Options                        |
 | ------------------------ | ---------- | ------------------------------ |
 | user_id                  | references | null: false, foreign_key: true |
-| nickname                 | references | null: false, foreign_key: true |
-| item_name                | string     | null: false, foreign_key: true |
+| img_url                  | references | null: false, foreign_key: true |
+| item_name                | string     | null: false                    |
 | items_text               | text       | null: false                    |
 | item_category            | integer    | null: false                    |
 | item_sales_status        | integer    | null: false                    |
@@ -85,7 +71,7 @@
 
 ### Association
 
-- belongs_to :login
+- belongs_to :users
 - has_many :item-image
 - has_many :item-category
 - has_many :item-sales-status
@@ -106,7 +92,7 @@
 
 ### Association
 
-- belongs_to :sign_in
+- belongs_to :users
 - belongs_to :items
 
 
@@ -127,7 +113,7 @@
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | item_id        | references | null: false, foreign_key: true |
-| item_category   | integer    | null: false                    |
+| item_category  | integer    | null: false                    |
 
 ### Association
 
