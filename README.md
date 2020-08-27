@@ -12,7 +12,7 @@
 | last-name             | string   | null: false |
 | first-name-kana       | string   | null: false |
 | last-name-kana        | string   | null: false |
-| birth-date            | datetime | null: false |
+| birth-date            | date     | null: false |
 
 ### Association
 
@@ -39,35 +39,15 @@
 - belongs_to :users
 
 
-## credit_card テーブル
-
-| Column         | Type       | Options                        |
-| -------------- | ---------- | ------------------------------ |
-| user_id        | references | null: false, foreign_key: true |
-| card-number    | integer    | null: false                    |
-| card-exp-month | integer    | null: false                    |
-| card-exp-year  | integer    | null: false                    |
-| card-cvc       | integer    | null: false                    |
-
-### Association
-
-- belongs_to :users
-
-
 ## items テーブル
 
-| Column                   | Type       | Options                        |
-| ------------------------ | ---------- | ------------------------------ |
-| user_id                  | references | null: false, foreign_key: true |
-| img_url                  | references | null: false, foreign_key: true |
-| item_name                | string     | null: false                    |
-| items_text               | text       | null: false                    |
-| item_category            | integer    | null: false                    |
-| item_sales_status        | integer    | null: false                    |
-| item_shipping_fee_status | integer    | null: false                    |
-| item_prefecture          | integer    | null: false                    |
-| item_scheduled_delivery  | integer    | null: false                    |
-| item_price               | integer    | null: false                    |
+| Column    | Type       | Options                        |
+| ----------| ---------- | ------------------------------ |
+| user_id   | references | null: false, foreign_key: true |
+| img_url   | references | null: false, foreign_key: true |
+| name      | string     | null: false                    |
+| text      | text       | null: false                    |
+| price     | integer    | null: false                    |
 
 ### Association
 
@@ -110,10 +90,10 @@
 
 ## item-category テーブル
 
-| Column         | Type       | Options                        |
-| -------------- | ---------- | ------------------------------ |
-| item_id        | references | null: false, foreign_key: true |
-| item_category  | integer    | null: false                    |
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| item_id   | references | null: false, foreign_key: true |
+| category  | integer    | null: false                    |
 
 ### Association
 
@@ -122,10 +102,10 @@
 
 ## item-sales-status テーブル
 
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| item_id             | references | null: false, foreign_key: true |
-| item_sales_status   | integer    | null: false                    |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| item_id      | references | null: false, foreign_key: true |
+| sales_status | integer    | null: false                    |
 
 ### Association
 
@@ -134,10 +114,10 @@
 
 ## item-shipping-fee テーブル
 
-| Column                     | Type       | Options                        |
-| -------------------------- | ---------- | ------------------------------ |
-| item_id                    | references | null: false, foreign_key: true |
-| item_shipping_fee_status   | integer    | null: false                    |
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| item_id             | references | null: false, foreign_key: true |
+| shipping_fee_status | integer    | null: false                    |
 
 ### Association
 
@@ -146,10 +126,10 @@
 
 ## item-prefecture テーブル
 
-| Column            | Type       | Options                        |
-| ----------------- | ---------- | ------------------------------ |
-| item_id           | references | null: false, foreign_key: true |
-| item_prefecture   | integer    | null: false                    |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| item_id      | references | null: false, foreign_key: true |
+| prefecture   | integer    | null: false                    |
 
 ### Association
 
@@ -158,10 +138,10 @@
 
 ## item-scheduled テーブル
 
-| Column            | Type       | Options                        |
-| ----------------- | ---------- | ------------------------------ |
-| item_id           | references | null: false, foreign_key: true |
-| item_scheduled    | integer    | null: false                    |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| item_id      | references | null: false, foreign_key: true |
+| scheduled    | integer    | null: false                    |
 
 ### Association
 
