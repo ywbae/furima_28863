@@ -35,7 +35,7 @@
 
 ### Association
 
-- belongs_to :orders
+- belongs_to :order
 
 
 ## items テーブル
@@ -43,8 +43,6 @@
 | Column         | Type       | Options                        |
 | ---------------| ---------- | ------------------------------ |
 | user           | references | null: false, foreign_key: true |
-| img_url        | references | null: false, foreign_key: true |
-| nickname       | references | null: false, foreign_key: true |
 | name           | string     | null: false                    |
 | text           | text       | null: false                    |
 | price          | integer    | null: false                    |
@@ -53,9 +51,8 @@
 ### Association
 
 - belongs_to :users
-- has_many :item-image
 - has_many :comments
-- has_one :orders
+- has_one :order
 
 
 ## comments テーブル
@@ -85,15 +82,3 @@
 - belongs_to :users
 - belongs_to :items
 - has_one :shipping-address
-
-
-## item-image テーブル
-
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| item        | references | null: false, foreign_key: true |
-| img_url     | string     | null: false                    |
-
-### Association
-
-- belongs_to :items
