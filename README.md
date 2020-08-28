@@ -25,7 +25,7 @@
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| user_id      | references | null: false, foreign_key: true |
+| user         | references | null: false, foreign_key: true |
 | postal_code  | string     | null: false                    |
 | prefecture   | integer    | null: false                    |
 | city         | string     | null: false                    |
@@ -40,13 +40,15 @@
 
 ## items テーブル
 
-| Column    | Type       | Options                        |
-| ----------| ---------- | ------------------------------ |
-| user_id   | references | null: false, foreign_key: true |
-| img_url   | references | null: false, foreign_key: true |
-| name      | string     | null: false                    |
-| text      | text       | null: false                    |
-| price     | integer    | null: false                    |
+| Column         | Type       | Options                        |
+| ---------------| ---------- | ------------------------------ |
+| user           | references | null: false, foreign_key: true |
+| img_url        | references | null: false, foreign_key: true |
+| nickname       | references | null: false, foreign_key: true |
+| name           | string     | null: false                    |
+| text           | text       | null: false                    |
+| price          | integer    | null: false                    |
+| trading_status | integer    | null: false                    |
 
 ### Association
 
@@ -60,8 +62,8 @@
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| item_id      | references | null: false, foreign_key: true |
-| user_id      | references | null: false, foreign_key: true |
+| item         | references | null: false, foreign_key: true |
+| user         | references | null: false, foreign_key: true |
 | nickname     | references | null: false, foreign_key: true |
 | comment_text | text       | null: false                    |
 
@@ -73,10 +75,10 @@
 
 ## orders テーブル
 
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| item_id      | references | null: false, foreign_key: true |
-| user_id      | references | null: false, foreign_key: true |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| item   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -87,10 +89,10 @@
 
 ## item-image テーブル
 
-| Column         | Type       | Options                        |
-| -------------- | ---------- | ------------------------------ |
-| item_id        | references | null: false, foreign_key: true |
-| img_url        | string     | null: false                    |
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| item        | references | null: false, foreign_key: true |
+| img_url     | string     | null: false                    |
 
 ### Association
 
