@@ -18,7 +18,7 @@
 
 - has_many :items
 - has_many :comments
-- has_many :orders
+- has_many :order
 
 
 ## shipping-address テーブル
@@ -80,7 +80,7 @@
 - belongs_to :items
 
 
-## orders テーブル
+## order テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
