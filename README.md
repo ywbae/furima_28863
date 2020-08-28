@@ -40,19 +40,29 @@
 
 ## items テーブル
 
-| Column         | Type       | Options                        |
-| ---------------| ---------- | ------------------------------ |
-| user           | references | null: false, foreign_key: true |
-| name           | string     | null: false                    |
-| text           | text       | null: false                    |
-| price          | integer    | null: false                    |
-| trading_status | integer    | null: false                    |
+| Column                 | Type       | Options                        |
+| ---------------------- | ---------- | ------------------------------ |
+| user                   | references | null: false, foreign_key: true |
+| name                   | string     | null: false                    |
+| text                   | text       | null: false                    |
+| price                  | integer    | null: false                    |
+| trading_status         | integer    | null: false                    |
+| category_id            | integer    | null: false                    |
+| sales_status_id        | integer    | null: false                    |
+| shipping_fee_id        | integer    | null: false                    |
+| prefecture_id          | integer    | null: false                    |
+| scheduled_delivery_id  | integer    | null: false                    |
 
 ### Association
 
 - belongs_to :users
 - has_many :comments
 - has_one :order
+- has_one :category
+- has_one :sales_status
+- has_one :shipping_fee
+- has_one :prefecture
+- has_one :scheduled_delivery
 
 
 ## comments テーブル
@@ -82,3 +92,63 @@
 - belongs_to :users
 - belongs_to :items
 - has_one :shipping-address
+
+
+## category テーブル
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| item          | references | null: false, foreign_key: true |
+| category_id   | integer    | null: false                    |
+
+### Association
+
+- belongs_to :items
+
+
+## sales_status テーブル
+
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| item            | references | null: false, foreign_key: true |
+| sales_status_id | integer    | null: false                  |
+
+### Association
+
+- belongs_to :items
+
+
+## shipping_fee テーブル
+
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| item            | references | null: false, foreign_key: true |
+| shipping_fee_id | integer    | null: false                  |
+
+### Association
+
+- belongs_to :items
+
+
+## prefecture テーブル
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| item          | references | null: false, foreign_key: true |
+| prefecture_id | integer    | null: false                  |
+
+### Association
+
+- belongs_to :items
+
+
+## scheduled_delivery テーブル
+
+| Column                | Type       | Options                        |
+| --------------------- | ---------- | ------------------------------ |
+| item                  | references | null: false, foreign_key: true |
+| scheduled_delivery_id | integer    | null: false                    |
+
+### Association
+
+- belongs_to :items
