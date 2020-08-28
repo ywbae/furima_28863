@@ -35,7 +35,7 @@
 
 ### Association
 
-- belongs_to :users
+- belongs_to :orders
 
 
 ## items テーブル
@@ -82,6 +82,7 @@
 
 - belongs_to :users
 - belongs_to :items
+- has_one :shipping-address
 
 
 ## item-image テーブル
