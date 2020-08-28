@@ -19,7 +19,6 @@
 - has_many :items
 - has_many :comments
 - has_many :orders
-- has_one :shipping_address
 
 
 ## shipping-address テーブル
