@@ -18,10 +18,10 @@
 
 - has_many :items
 - has_many :comments
-- has_many :order
+- has_many :orders
 
 
-## shipping-address テーブル
+## shipping_address テーブル
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
@@ -58,11 +58,11 @@
 - belongs_to :users
 - has_many :comments
 - has_one :order
-- has_one :category
-- has_one :sales_status
-- has_one :shipping_fee
-- has_one :prefecture
-- has_one :scheduled_delivery
+- belongs_to_active_hash :category
+- belongs_to_active_hash :sales_status
+- belongs_to_active_hash :shipping_fee
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :scheduled_delivery
 
 
 ## comments テーブル
@@ -92,63 +92,3 @@
 - belongs_to :users
 - belongs_to :items
 - has_one :shipping-address
-
-
-## category テーブル
-
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| item          | references | null: false, foreign_key: true |
-| category_id   | integer    | null: false                    |
-
-### Association
-
-- belongs_to :items
-
-
-## sales_status テーブル
-
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| item            | references | null: false, foreign_key: true |
-| sales_status_id | integer    | null: false                  |
-
-### Association
-
-- belongs_to :items
-
-
-## shipping_fee テーブル
-
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| item            | references | null: false, foreign_key: true |
-| shipping_fee_id | integer    | null: false                  |
-
-### Association
-
-- belongs_to :items
-
-
-## prefecture テーブル
-
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| item          | references | null: false, foreign_key: true |
-| prefecture_id | integer    | null: false                  |
-
-### Association
-
-- belongs_to :items
-
-
-## scheduled_delivery テーブル
-
-| Column                | Type       | Options                        |
-| --------------------- | ---------- | ------------------------------ |
-| item                  | references | null: false, foreign_key: true |
-| scheduled_delivery_id | integer    | null: false                    |
-
-### Association
-
-- belongs_to :items
