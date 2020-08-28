@@ -25,7 +25,7 @@
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| user         | references | null: false, foreign_key: true |
+| user_id      | references | null: false, foreign_key: true |
 | postal_code  | string     | null: false                    |
 | prefecture   | integer    | null: false                    |
 | city         | string     | null: false                    |
@@ -42,7 +42,7 @@
 
 | Column                 | Type       | Options                        |
 | ---------------------- | ---------- | ------------------------------ |
-| user                   | references | null: false, foreign_key: true |
+| user_id                | references | null: false, foreign_key: true |
 | name                   | string     | null: false                    |
 | text                   | text       | null: false                    |
 | price                  | integer    | null: false                    |
@@ -69,8 +69,8 @@
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| item         | references | null: false, foreign_key: true |
-| user         | references | null: false, foreign_key: true |
+| item_id      | references | null: false, foreign_key: true |
+| user_id      | references | null: false, foreign_key: true |
 | nickname     | references | null: false, foreign_key: true |
 | comment_text | text       | null: false                    |
 
