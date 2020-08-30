@@ -10,60 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_26_173409) do
-
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "item_id"
-    t.bigint "user_id"
-    t.bigint "nickname_id"
-    t.text "comment_text"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["item_id"], name: "index_comments_on_item_id"
-    t.index ["nickname_id"], name: "index_comments_on_nickname_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "nickname_id"
-    t.string "item_name"
-    t.text "items_text"
-    t.integer "item_category_id"
-    t.integer "item_sales_status_id"
-    t.integer "item_shipping_fee_status_id"
-    t.integer "item_prefecture_id"
-    t.integer "item_scheduled_delivery_id"
-    t.integer "item_price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["nickname_id"], name: "index_items_on_nickname_id"
-    t.index ["user_id"], name: "index_items_on_user_id"
-  end
-
-  create_table "sign_ins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "email_id"
-    t.bigint "password_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email_id"], name: "index_sign_ins_on_email_id"
-    t.index ["password_id"], name: "index_sign_ins_on_password_id"
-    t.index ["user_id"], name: "index_sign_ins_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 2020_08_30_173035) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname"
-    t.string "email"
-    t.string "password"
-    t.string "password_confirmation"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "first_name_kana"
-    t.string "last_name_kana"
-    t.datetime "birth_date"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "nickname", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "last_name_kana", null: false
+    t.date "birth_date", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
