@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,128}\z/.freeze
   validates_format_of :password, with: PASSWORD_REGEX, message: 'は英字と数字を混合して設定してください'
   validates :nickname, :birth_date, presence: true

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    image {File.open("#{Rails.root}/public/images/test_image.png")}
+    image { File.open("#{Rails.root}/public/images/test_image.png") }
     user_id               { 3 }
     name                  { Faker::Lorem.sentence }
     text                  { Faker::Lorem.sentence }
