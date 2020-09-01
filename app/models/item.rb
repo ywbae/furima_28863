@@ -11,9 +11,17 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :scheduled_delivery
 
+
+  validates :category_id, :sales_status_id, :shipping_fee_id, :prefecture_id, :scheduled_delivery_id, numericality: { other_than: 0 }
+  
   validates :name, :text, :price, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 999999, message: '設定可能な範囲を超えています' }
 
-  validates :category_id, :sales_status_id, :shipping_fee_id, :prefecture_id, :scheduled_delivery_id, numericality: { other_than: 0 }
+  validates :image, presence: true, unless: :was_attached?
+
+  def was_attached?
+    self.image.attached?
+  end
+
 end
 
