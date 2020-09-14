@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
+
   def index
     @item = Item.find(params[:item_id])
     @order = PaymentForm.new
@@ -19,7 +20,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.permit(:item_id, :order_id, :postal_code, :prefecture_id, :city, :addresses, :building, :phone_number, :token).merge(user_id: current_user.id)
+    params.permit(:item_id, :order_id, :postal_code, :prefecture_id, :city, :addresses, :building, :phone_number, :token, :price).merge(user_id: current_user.id)
   end
 
   def pay_item
