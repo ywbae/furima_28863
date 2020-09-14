@@ -17,7 +17,7 @@ RSpec.describe PaymentForm, type: :model do
       end
 
       it '郵便番号が空欄だと購入できない' do
-        payment_form = FactoryBot.build(:payment_form, postal_code: "")
+        payment_form = FactoryBot.build(:payment_form, postal_code: '')
         payment_form.valid?
         expect(payment_form.errors[:postal_code]).to include('can\'t be blank')
       end
@@ -33,17 +33,17 @@ RSpec.describe PaymentForm, type: :model do
         expect(payment_form.errors[:prefecture_id]).to include('を選択してください')
       end
       it '市区町村が空欄だと購入できない' do
-        payment_form = FactoryBot.build(:payment_form, city: "")
+        payment_form = FactoryBot.build(:payment_form, city: '')
         payment_form.valid?
         expect(payment_form.errors[:city]).to include('can\'t be blank')
       end
       it '番地がないと購入できない' do
-        payment_form = FactoryBot.build(:payment_form, addresses: "")
+        payment_form = FactoryBot.build(:payment_form, addresses: '')
         payment_form.valid?
         expect(payment_form.errors[:addresses]).to include('can\'t be blank')
       end
       it '電話番号が空欄では購入できない' do
-        payment_form = FactoryBot.build(:payment_form, phone_number: "")
+        payment_form = FactoryBot.build(:payment_form, phone_number: '')
         payment_form.valid?
         expect(payment_form.errors[:phone_number]).to include('can\'t be blank')
       end
