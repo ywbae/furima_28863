@@ -2,12 +2,12 @@
 
 ## users テーブル
 
-| Column                | Type     | Options     |
-| --------------------- | -------- | ----------- |
-| nickname              | string   | null: false |
-| email                 | string   | null: false |
-| password              | string   | null: false |
+| Column                | Type     | Options                  |
+| --------------------- | -------- | ------------------------ |
+| email                 | string   | null: false, default: "" |
+| password              | string   | null: false, default: "" |
 | password-confirmation | string   | null: false |
+| nickname              | string   | null: false |
 | first-name            | string   | null: false |
 | last-name             | string   | null: false |
 | first-name-kana       | string   | null: false |
@@ -25,7 +25,6 @@
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| user_id      | references | null: false, foreign_key: true |
 | postal_code  | string     | null: false                    |
 | prefecture   | integer    | null: false                    |
 | city         | string     | null: false                    |
@@ -36,18 +35,17 @@
 
 ### Association
 
-- belongs_to :order
+
 
 
 ## items テーブル
 
 | Column                 | Type       | Options                        |
 | ---------------------- | ---------- | ------------------------------ |
-| user_id                | references | null: false, foreign_key: true |
+| user                   | references | null: false, foreign_key: true |
 | name                   | string     | null: false                    |
 | text                   | text       | null: false                    |
 | price                  | integer    | null: false                    |
-| trading_status         | integer    | null: false                    |
 | category_id            | integer    | null: false                    |
 | sales_status_id        | integer    | null: false                    |
 | shipping_fee_id        | integer    | null: false                    |
@@ -59,6 +57,7 @@
 - belongs_to :users
 - has_many :comments
 - has_one :order
+- has_one_attached :image
 - belongs_to_active_hash :category
 - belongs_to_active_hash :sales_status
 - belongs_to_active_hash :shipping_fee
@@ -83,13 +82,13 @@
 
 ## order テーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| item_id | references | null: false, foreign_key: true |
-| user_id | references | null: false, foreign_key: true |
+| Column  | Type       | Options           |
+| ------- | ---------- | ----------------- |
+| item    | references | foreign_key: true |
+| user    | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :users
-- belongs_to :items
+- belongs_to :users, optional: true
+- belongs_to :items, optional: true
 - has_one :shipping-address
