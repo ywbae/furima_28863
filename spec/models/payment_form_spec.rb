@@ -32,7 +32,7 @@ RSpec.describe PaymentForm, type: :model do
       end
 
       it '都道府県を選択しないと購入できない' do
-        @payment_form.prefecture_id = nil
+        @payment_form.prefecture_id = 0
         @payment_form.valid?
         expect(@payment_form.errors[:prefecture_id]).to include('を選択してください')
       end
