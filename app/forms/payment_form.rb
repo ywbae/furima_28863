@@ -8,7 +8,7 @@ class PaymentForm
     validates :city
     validates :addresses
     validates :phone_number, format: { with: /\A\d{,11}\z/, message: 'は11桁以内の数字（ハイフン不要）で入力してください' }
-    validates :token, presence: { message: 'can\'t be blank' }
+    validates :token, presence: { message: "can't be blank" }
   end
 
   def save
